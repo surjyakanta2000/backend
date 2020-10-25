@@ -3,6 +3,7 @@ const app = experss();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const port = process.env.PORT || 4000;
 dotenv.config();
 
 //connect mongoose & db
@@ -22,4 +23,6 @@ app.use(cors());
 app.use("/api/listings",listingRoutes);
 app.use("/api/user",userRoutes);
 
-app.listen(4000,() => console.log("server is running on port 4000!!"));
+app.listen(port,()=> {
+    console.log(`listining to the port at ${port}`);
+});
